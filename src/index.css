@@ -14,7 +14,8 @@ body {
   width: 100vw;
 }
 ul,
-li {
+li,
+input {
   list-style: none;
   margin: 0;
   padding: 0;

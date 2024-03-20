@@ -1,10 +1,10 @@
-// import css from './SearchBox.module.css';
+import css from "./SearchBox.module.css";
 
 const SearchBox = () => {
   return (
-    <div>
-      <h3>Find contacts by name</h3>
-      <input type="text" placeholder="Search..." />
+    <div className={css.searchBox}>
+      <h3 className={css.searchTitle}>Find contacts by name</h3>
+      <input className={css.searchInput} type="text" placeholder="Search..." />
     </div>
   );
 };

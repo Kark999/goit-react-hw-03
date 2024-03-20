@@ -17,7 +17,7 @@
   font-size: 16px;
   font-weight: bold;
   line-height: 1.5; /* 150% */
-  letter-spacing: 0.04;
+  letter-spacing: 0.04em;
 }
 .deleteBtn {
   display: flex;
@@ -30,7 +30,7 @@
   font-size: 16px;
   font-weight: bold;
   line-height: 1.5; /* 150% */
-  letter-spacing: 0.04;
+  letter-spacing: 0.04em;
   border: 1px solid #303030;
   height: 32px;
 }
