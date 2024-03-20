@@ -1,1 +1,4 @@
-
+.contactListItem {
+  display: flex;
+  align-items: center;
+}

@@ -3,8 +3,10 @@ import css from "./Contact.module.css";
 const Contacts = ({ name, number }) => {
   return (
     <div className={css.contactCard}>
-      <p className={css.contactName}>{name}</p>
-      <p className={css.contactNumber}>{number}</p>
+      <div className={css.contactInfo}>
+        <p className={css.contactText}>{name}</p>
+        <p className={css.contactText}>{number}</p>
+      </div>
       <button className={css.deleteBtn}>Delete</button>
     </div>
   );
