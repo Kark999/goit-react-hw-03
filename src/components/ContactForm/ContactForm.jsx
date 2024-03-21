@@ -3,24 +3,22 @@ import { useId } from "react";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
+const initialValues = { name: "", number: "" };
+
+const feedbackSchema = Yup.object().shape({
+  name: Yup.string()
+    .required("Name is required")
+    .min(2, "Too Short!")
+    .max(50, "Too Long!"),
+  number: Yup.string()
+    .required("Number is required")
+    .min(2, "Too Short!")
+    .max(50, "Too Long!"),
+});
+
 const ContactForm = ({ onAddContact }) => {
-  const initialValues = { name: "", number: "" };
-
-  const feedbackSchema = Yup.object().shape({
-    name: Yup.string()
-      .min(2, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Required"),
-    number: Yup.string()
-      .min(2, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Required"),
-  });
-
   const handleSubmit = (values, actions) => {
-    // const formData = values;
     onAddContact(values);
-    console.log(values);
     actions.resetForm();
   };
 

@@ -4,6 +4,7 @@ import ContactForm from "./components/ContactForm/ContactForm";
 import SearchBox from "./components/SearchBox/SearchBox";
 import ContactList from "./components/ContactList/ContactList";
 import ContactUserList from "./assets/UserList.json";
+
 import "./App.css";
 
 function App() {
@@ -14,12 +15,18 @@ function App() {
     setContacts((prevState) => [...prevState, finalContact]);
   };
 
+  const onDeleteContact = (contactId) => {
+    setContacts((prevContacts) =>
+      prevContacts.filter((contact) => contact.id !== contactId)
+    );
+  };
+
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm onAddContact={onAddContact} />
       <SearchBox />
-      <ContactList contacts={contacts} />
+      <ContactList contacts={contacts} onDeleteContact={onDeleteContact} />
     </div>
   );
 }
