@@ -3,7 +3,7 @@ import { useId } from "react";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-const ContactForm = () => {
+const ContactForm = ({ onAddContact }) => {
   const initialValues = { name: "", number: "" };
 
   const feedbackSchema = Yup.object().shape({
@@ -18,6 +18,8 @@ const ContactForm = () => {
   });
 
   const handleSubmit = (values, actions) => {
+    // const formData = values;
+    onAddContact(values);
     console.log(values);
     actions.resetForm();
   };
@@ -28,9 +30,7 @@ const ContactForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={() => {
-        handleSubmit;
-      }}
+      onSubmit={handleSubmit}
       validationSchema={feedbackSchema}
     >
       <Form className={css.form}>

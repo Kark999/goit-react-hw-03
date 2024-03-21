@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
-import * as Yup from "yup";
 import ContactForm from "./components/ContactForm/ContactForm";
 import SearchBox from "./components/SearchBox/SearchBox";
 import ContactList from "./components/ContactList/ContactList";
@@ -10,15 +9,15 @@ import "./App.css";
 function App() {
   const [contacts, setContacts] = useState(ContactUserList);
 
-  const onAddContact = (formData) => {
-    const finalContact = { ...formData, id: nanoid() };
+  const onAddContact = (values) => {
+    const finalContact = { ...values, id: nanoid() };
     setContacts((prevState) => [...prevState, finalContact]);
   };
 
   return (
     <div>
       <h1>Phonebook</h1>
-      <ContactForm />
+      <ContactForm onAddContact={onAddContact} />
       <SearchBox />
       <ContactList contacts={contacts} />
     </div>
