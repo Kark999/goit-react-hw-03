@@ -11,8 +11,8 @@ const ContactForm = () => {
       .min(2, "Too Short!")
       .max(50, "Too Long!")
       .required("Required"),
-    number: Yup.number()
-      .min(5, "Too Short!")
+    number: Yup.string()
+      .min(2, "Too Short!")
       .max(50, "Too Long!")
       .required("Required"),
   });
@@ -27,7 +27,7 @@ const ContactForm = () => {
 
   return (
     <Formik
-      initialValues={{ initialValues }}
+      initialValues={initialValues}
       onSubmit={() => {
         handleSubmit;
       }}
