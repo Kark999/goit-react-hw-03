@@ -35,12 +35,19 @@ function App() {
     );
   };
 
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
+
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm onAddContact={onAddContact} />
       <SearchBox filter={filter} onChangeFilter={onChangeFilter} />
-      <ContactList contacts={contacts} onDeleteContact={onDeleteContact} />
+      <ContactList
+        contacts={filteredContacts}
+        onDeleteContact={onDeleteContact}
+      />
     </div>
   );
 }
