@@ -38,7 +38,7 @@ const ContactForm = ({ onAddContact }) => {
           Name
         </label>
         <Field className={css.field} type="text" name="name" id={nameFieldId} />
-        <ErrorMessage className={css.error} name="name" as="span" />
+        <ErrorMessage className={css.error} name="name" component="span" />
         <label className={css.label} htmlFor={numberFieldId}>
           Number
         </label>
@@ -48,7 +48,7 @@ const ContactForm = ({ onAddContact }) => {
           name="number"
           id={numberFieldId}
         />
-        <ErrorMessage className={css.error} name="number" as="span" />
+        <ErrorMessage className={css.error} name="number" component="span" />
         <button className={css.formBtn} type="submit">
           Add contact
         </button>
