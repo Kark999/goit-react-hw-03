@@ -8,7 +8,12 @@ import ContactUserList from "./assets/UserList.json";
 import "./App.css";
 
 function App() {
-  const [contacts, setContacts] = useState(ContactUserList);
+  const [contacts, setContacts] = useState(() => {
+    const stringifiedContact = localStorage.getItem("contacts");
+    if (!stringifiedContact) return ContactUserList;
+    const parsedContacts = JSON.parse(stringifiedContact);
+    return parsedContacts;
+  });
 
   const onAddContact = (values) => {
     const finalContact = { ...values, id: nanoid() };

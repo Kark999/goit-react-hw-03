@@ -19,6 +19,8 @@ const feedbackSchema = Yup.object().shape({
 const ContactForm = ({ onAddContact }) => {
   const handleSubmit = (values, actions) => {
     onAddContact(values);
+    console.log("values: ", values);
+
     actions.resetForm();
   };
 
